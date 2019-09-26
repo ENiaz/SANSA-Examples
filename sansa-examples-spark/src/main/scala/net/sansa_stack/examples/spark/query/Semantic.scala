@@ -57,12 +57,7 @@ object Semantic {
     println("Phase 2: SPARQL System")
     println("----------------------")
 
-    val qs = new QuerySystem(
-      partitionData,
-      input,
-      output,
-      numOfFilesPartition = 1)
-    qs.run()
+
 
     spark.close()
 

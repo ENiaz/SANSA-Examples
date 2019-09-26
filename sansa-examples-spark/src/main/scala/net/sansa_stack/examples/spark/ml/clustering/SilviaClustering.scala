@@ -40,9 +40,6 @@ object SilviaClustering {
     val lang = Lang.NTRIPLES
     val triples = spark.rdf(lang)(input)
 
-    val graph = triples.asStringGraph()
-
-    AlgSilviaClustering(spark, graph, output, outputeval)
 
     spark.stop
 

@@ -35,14 +35,7 @@ object BorderFlowClustering {
 
     val lang = Lang.NTRIPLES
     val triples = spark.rdf(lang)(input)
-    val graph = triples.asGraph()
 
-    val borderflow = algName match {
-      case "borderflow" => BorderFlow(spark, graph, output, outputevlsoft, outputevlhard)
-      case "firsthardening" => FirstHardeninginBorderFlow(spark, graph, output, outputevlhard)
-      case _ =>
-        throw new RuntimeException("'" + algName + "' - Not supported, yet.")
-    }
 
     spark.stop
 

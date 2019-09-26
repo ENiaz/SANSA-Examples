@@ -36,10 +36,7 @@ object RDFGraphPIClustering {
     val lang = Lang.NTRIPLES
     val triples = spark.rdf(lang)(input)
 
-    val graph = triples.asStringGraph()
 
-    val cluster = RDFGraphPowerIterationClustering(spark, graph, output, k, maxIterations)
-    cluster.saveAsTextFile(output)
 
     spark.stop
 

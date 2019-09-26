@@ -37,14 +37,7 @@ object PageRank {
     val lang = Lang.NTRIPLES
     val triples = spark.rdf(lang)(input)
 
-    val graph = triples.asGraph()
 
-    val pagerank = graph.pageRank(0.00001).vertices
-    val report = pagerank.join(graph.vertices)
-      .map({ case (k, (r, v)) => (r, v, k) })
-      .sortBy(50 - _._1)
-
-    report.take(50).foreach(println)
 
     spark.stop
 
